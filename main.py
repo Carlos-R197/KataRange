@@ -4,14 +4,15 @@ class Range:
     def __init__(self, interval):
         self.interval = interval
 
-        first_number_end = interval.find(',')
+        separator = interval.find(',')
 
         if (interval[0] == '['):
-            self.start_point = int(interval[1:first_number_end])
+            self.start_point = int(interval[1:separator])
         else:
-            self.start_point = int(interval[1:first_number_end]) + 1
+            self.start_point = int(interval[1:separator]) + 1
 
-        first_digit = first_number_end + 1
+        
+        first_digit = separator + 1
         last_digit = len(interval) - 2
         if (interval[len(interval) - 1] == ']'):
             self.end_point = int(interval[first_digit:last_digit + 1])
